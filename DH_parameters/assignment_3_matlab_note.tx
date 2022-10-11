@@ -1,0 +1,72 @@
+Homework3
+
+Problem2:
+clear all;
+clc;
+format short;
+DH_1_0 = {0,0,0,sym('theta_1')};
+DH_2_1 = {sym('L1'),pi/2,0,sym('theta_2')};
+DH_3_2 = {sym('L2'),0,0,sym('theta_3')};
+
+T_1_0 = create_matrix_from_DH_parameters(DH_1_0);
+T_2_1 = create_matrix_from_DH_parameters(DH_2_1);
+T_3_2 = create_matrix_from_DH_parameters(DH_3_2);
+final_T = simplify(T_1_0*T_2_1*T_3_2)
+
+Problem3:
+clear all;
+clc;
+format short;
+DH_1_0 = {0,0,sym('L1_L2'),sym('theta_1')};
+DH_2_1 = {0,pi/2,0,sym('theta_2')};
+DH_3_2 = {sym('L3'),0,0,sym('theta_3')};
+
+T_1_0 = create_matrix_from_DH_parameters(DH_1_0);
+T_2_1 = create_matrix_from_DH_parameters(DH_2_1);
+T_3_2 = create_matrix_from_DH_parameters(DH_3_2);
+% final_T = simplify(T_1_0*T_2_1*T_3_2)
+simplify(T_1_0), simplify(T_2_1), simplify(T_3_2)
+
+
+Problem3:
+clear all;
+clc;
+format short;
+DH_1_0 = {0,0,0,sym('theta_1')};
+DH_2_1 = {sym('L1'),0,0,sym('theta_2')};
+DH_3_2 = {sym('L2'),0,0,sym('theta_3')};
+DH_H_3 = {sym('L3'),0,0,0};
+
+T_1_0 = create_matrix_from_DH_parameters(DH_1_0);
+T_2_1 = create_matrix_from_DH_parameters(DH_2_1);
+T_3_2 = create_matrix_from_DH_parameters(DH_3_2);
+T_H_3 = create_matrix_from_DH_parameters(DH_H_3);
+simplify(T_1_0), simplify(T_2_1), simplify(T_3_2), simplify(T_H_3);
+
+
+Problem3(c):
+clear all;
+clc;
+format short;
+%DH_1_0 = {0,0,0,0};
+%DH_2_1 = {sym('L1'),0,0,0};
+%DH_3_2 = {sym('L2'),0,0,0};
+%DH_H_3 = {sym('L3'),0,0,0};
+
+%DH_1_0 = {0,0,0,pi/18};
+%DH_2_1 = {sym('L1'),0,0,pi/9};
+%DH_3_2 = {sym('L2'),0,0,pi/6};
+%DH_H_3 = {sym('L3'),0,0,0};
+
+DH_1_0 = {0,0,0,pi/2};
+DH_2_1 = {sym('L1'),0,0,pi/2};
+DH_3_2 = {sym('L2'),0,0,pi/2};
+DH_H_3 = {sym('L3'),0,0,pi/2};
+
+T_1_0 = create_matrix_from_DH_parameters(DH_1_0);
+T_2_1 = create_matrix_from_DH_parameters(DH_2_1);
+T_3_2 = create_matrix_from_DH_parameters(DH_3_2);
+T_H_3 = create_matrix_from_DH_parameters(DH_H_3);
+%simplify(T_1_0), simplify(T_2_1), simplify(T_3_2), simplify(T_H_3);
+T_3_0 = vpa(T_1_0*T_2_1*T_3_2, 3)
+T_H_0 = vpa(T_H_3*T_1_0*T_2_1*T_3_2, 3)
